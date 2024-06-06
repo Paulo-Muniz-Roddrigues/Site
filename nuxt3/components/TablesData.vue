@@ -77,7 +77,7 @@
 
 <script>
 export default {
-  name:'TabelaDadosComponent',
+  name:'TablesDataComponent',
   props: {
     items: {
       type: Array

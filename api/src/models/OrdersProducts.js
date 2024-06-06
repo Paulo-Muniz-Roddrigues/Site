@@ -30,7 +30,7 @@ const OrdersProducts = sequelize.define(
   },
 );
 
-OrdersProducts.BelongsTo(Orders, {
+OrdersProducts.belongsTo(Orders, {
   as: 'orders',
   onDelete: 'no action',
   onUpdate: 'no action',
@@ -39,7 +39,7 @@ OrdersProducts.BelongsTo(Orders, {
     name: 'idOrders',
   },
 });
-OrdersProducts.BelongsTo(Products, {
+OrdersProducts.belongsTo(Products, {
   as: 'products',
   onDelete: 'no action',
   onUpdate: 'no action',

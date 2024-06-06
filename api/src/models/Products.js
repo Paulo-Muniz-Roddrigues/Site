@@ -33,7 +33,7 @@ const Products = sequelize.define(
   },
 );
 
-Products.BelongsTo(Categories, {
+Products.belongsTo(Categories, {
   as: 'categories',
   onDelete: 'no action',
   onUpdate: 'no action',

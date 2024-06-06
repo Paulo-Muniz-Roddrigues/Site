@@ -44,7 +44,7 @@ const Adresses = sequelize.define(
   },
 );
 
-Adresses.BelongsTo(Users, {
+Adresses.belongsTo(Users, {
   as: 'users',
   onDelete: 'no action',
   onUpdate: 'no action',

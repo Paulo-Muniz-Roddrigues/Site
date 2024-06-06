@@ -35,8 +35,8 @@ const Orders = sequelize.define(
 
 );
 
-Orders.BelongsTo(Users, {
-  as: 'users',
+Orders.belongsTo(Users, {
+  as: 'usersCotumer',
   onDelete: 'no action',
   onUpdate: 'no action',
   foreignKey: {
@@ -44,8 +44,8 @@ Orders.BelongsTo(Users, {
     name: 'idUsersCostumers',
   },
 });
-Orders.BelongsTo(Users, {
-  as: 'users',
+Orders.belongsTo(Users, {
+  as: 'usersDelivers',
   onDelete: 'no action',
   onUpdate: 'no action',
   foreignKey: {
@@ -53,7 +53,7 @@ Orders.BelongsTo(Users, {
     name: 'idUsersDelivers',
   },
 });
-Orders.BelongsTo(Adresses, {
+Orders.belongsTo(Adresses, {
   as: 'adresses',
   onDelete: 'no action',
   onUpdate: 'no action',
@@ -62,7 +62,7 @@ Orders.BelongsTo(Adresses, {
     name: 'idAdresses',
   },
 });
-Orders.BelongsTo(Payments, {
+Orders.belongsTo(Payments, {
   as: 'payments',
   onDelete: 'no action',
   onUpdate: 'no action',
@@ -71,7 +71,7 @@ Orders.BelongsTo(Payments, {
     name: 'idPayments',
   },
 });
-Orders.BelongsTo(Cupoms, {
+Orders.belongsTo(Cupoms, {
   as: 'cupoms',
   onDelete: 'no action',
   onUpdate: 'no action',
