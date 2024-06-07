@@ -7,43 +7,44 @@ git add .
 git commit -m ""
 git push origin master
 
-Meu tab é igual a 2 espaços.
+https://coding-fonts.netlify.app/fonts/consolas/?language=css
+treinar bootstrap
 
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Layers</title>
-</head>
-<body>
-  <div class="layer-container" id="layerContainer">
-    <div class="layer">
-      <h1>Texto</h1>
-    </div>
-    <div class="layer">
-      <h1>Em cima do texto</h1>
-    </div>
-  </div>
-</body>
-</html>
+git init
+git remote add origin LINK SSH
+git add .
+git commit -m ""
+git push origin master
 
-<script></script>
+import axios from "axios";
 
-<style>
-  .layer-container {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
+export default defineNuxtPlugin(() => {
+  const domain = 'http://localhost:3232/'
+
+  let api = axios.create({
+    baseURL: domain,
+    headers: {
+      common: {
+        Authorization: `Bearer`
+      }
+    }
+  });
+
+  api.interceptors.request.use((config) => {
+    const token = localStorage.getItem('forget-key') || '';
+    config.defaults.headers.common['Authorization'] =  `Bearer ${token}`
+    return config
+  });
+
+  api.interceptors.response.use(function (response) {
+    return response.data;
+  }, function (error) {
+    return Promise.reject(error);
+  });
+
+  return {
+    provide: {
+      api: api
+    }
   }
-  .layer {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-</style>
-
-agora faça uma função chamada position() onde seu pimeiro parametro sera a posição x que vai de 0 a 100% e o segundo parametro sera posição y que vai de 0 até - infinito. essa função sera responsavel por possicionar qualquer elemento da pagina em qualquer posição
+})
