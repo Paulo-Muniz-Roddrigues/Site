@@ -1,10 +1,12 @@
 <template>
-    <div class="title" style="color: white;">
-      <u>Titulo</u>
-    </div >
-    <div class="content">
-      oi
-    </div>
+    <body>
+      <div class="title" style="color: white;">
+        <u>Titulo</u>
+      </div >
+      <div class="content">
+        oi
+      </div>
+    </body>
 </template>
 
 <script>

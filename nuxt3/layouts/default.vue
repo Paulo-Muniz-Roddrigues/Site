@@ -1,25 +1,23 @@
 <template>
-  <v-layout>
-    <layerBody>
-      <layer>
-        <v-main style="height: 100vh;">
-          <slot></slot>
-        </v-main>
-      </layer>
-      <layer>
-        <div class="trigger">
-          <div class="navbar">
-          </div>
+
+    <v-layout>
+      <div class="trigger">
+        <div class="navbar">
         </div>
-        <button class="config">
-          Clique aqui
-        </button>
-      </layer>
-    </layerBody>
-  </v-layout>
+      </div>
+          <v-main style="height: 100vh;">
+            <slot></slot>
+          </v-main>
+
+    </v-layout>
+
 </template>
 
-<script></script>
+<script>
+  export default {
+    name: 'defaultLayout',
+  }
+</script>
 
 <style scoped>
   .trigger {
@@ -43,17 +41,5 @@
     height: 10vh;
     width: 10vh;
     background-color: green;
-  }
-  layerBody{
-    position: relative;
-    width: 100%;
-    height: 100vh;
-  }
-  layer {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
   }
 </style>

@@ -34,12 +34,9 @@ export default defineNuxtConfig({
     moduleOptions: {
       /* nuxt-vuetify module options */
       treeshaking: true || false,
-      useIconCDN: false,
 
       /* vite-plugin-vuetify options */
-      styles: true || 'none' || 'expose' || 'sass' || { configFile: String },
       autoImport: true || false,
-      useVuetifyLabs: false,
     },
   },
 })
