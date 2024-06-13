@@ -1,5 +1,5 @@
 <template>
-
+<!-- 
     <v-layout>
       <div class="trigger">
         <div class="navbar">
@@ -9,21 +9,20 @@
             <slot></slot>
           </v-main>
 
-    </v-layout>
+    </v-layout> -->
 
 </template>
 
 <script>
-  export default {
-    name: 'defaultLayout',
-  }
+  // export default {
+  //   name: 'defaultLayout',
+  // }
 </script>
 
 <style scoped>
-  .trigger {
+  /* .trigger {
     height: 100vh;
     width: 20vh;
-    /* border: 2px solid white; */
   }
   .navbar {
     min-height: 100vh;
@@ -41,5 +40,5 @@
     height: 10vh;
     width: 10vh;
     background-color: green;
-  }
+  } */
 </style>

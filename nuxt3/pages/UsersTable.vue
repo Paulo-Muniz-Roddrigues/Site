@@ -1,5 +1,5 @@
 <template>
-  <body style="background-color: black;">
+  <!-- <body style="background-color: black;">
     <v-container class="justify-center mt-5">
       <TablesData 
         @editItem="editItem" 
@@ -139,109 +139,109 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
-  </body>
+  </body> -->
 </template>
 
 <script>
-  export default {
-    name:'UserTableComponent',
-    data: () => {
-      return {
-        dialog: false,
-        valor: 0,
-        ativo: false,
-        users: {},
-        loading: true,
-        textoUsuario: null,
-        headers: [
-          { title: 'Identificador', key: 'id' },
-          { title: 'UserName', key: 'username' },
-          { title: 'cpf', key: 'cpf' },
-          { title: 'Name', key: 'name' },
-          { title: 'Phone', key: 'phone' },
-          { title: 'Password', key: 'passwordHash' },
-          { title: 'Token', key: 'token' },
-          { title: 'Role', key: 'role' },
-          { title: 'Cart', key: 'cart' },
-          { title: 'Email', key: 'email' },
-          { title: 'Recuperation', key: 'recuperation' },
-          { title: 'actions', key: 'actions', sortable: false },
-        ],
-        items: [],
-      }
-    },
+  // export default {
+  //   name:'UserTableComponent',
+  //   data: () => {
+  //     return {
+  //       dialog: false,
+  //       valor: 0,
+  //       ativo: false,
+  //       users: {},
+  //       loading: true,
+  //       textoUsuario: null,
+  //       headers: [
+  //         { title: 'Identificador', key: 'id' },
+  //         { title: 'UserName', key: 'username' },
+  //         { title: 'cpf', key: 'cpf' },
+  //         { title: 'Name', key: 'name' },
+  //         { title: 'Phone', key: 'phone' },
+  //         { title: 'Password', key: 'passwordHash' },
+  //         { title: 'Token', key: 'token' },
+  //         { title: 'Role', key: 'role' },
+  //         { title: 'Cart', key: 'cart' },
+  //         { title: 'Email', key: 'email' },
+  //         { title: 'Recuperation', key: 'recuperation' },
+  //         { title: 'actions', key: 'actions', sortable: false },
+  //       ],
+  //       items: [],
+  //     }
+  //   },
 
-    async created() {
-      await this.getItems();
-    },
+  //   async created() {
+  //     await this.getItems();
+  //   },
 
-    computed: {
-    tituloDialog: function() {
-      return this.users.id ? 'Editar': 'Criar';
-      }
-    },
+  //   computed: {
+  //   tituloDialog: function() {
+  //     return this.users.id ? 'Editar': 'Criar';
+  //     }
+  //   },
 
-    watch: {
-      ativo(valor) {
-        if (valor == false) {
-          this.resetusers()
-        }
-      }
-    },
+  //   watch: {
+  //     ativo(valor) {
+  //       if (valor == false) {
+  //         this.resetusers()
+  //       }
+  //     }
+  //   },
 
-    methods: {
-      resetusers() {
-        this.users = {
-          id: null,
-          username: null,
-          cpf: null,
-          name: null,
-          phone: null,
-          passwordHash: null,
-          token: null,
-          role: null,
-          cart: null,
-          email: null,
-          recuperation: null
-        }
-        this.ativo = false;
-      },
+  //   methods: {
+  //     resetusers() {
+  //       this.users = {
+  //         id: null,
+  //         username: null,
+  //         cpf: null,
+  //         name: null,
+  //         phone: null,
+  //         passwordHash: null,
+  //         token: null,
+  //         role: null,
+  //         cart: null,
+  //         email: null,
+  //         recuperation: null
+  //       }
+  //       this.ativo = false;
+  //     },
 
-      async persist() {
-        if (this.users.id) {
-          const response = await this.$api.post(`/users/update/${this.users.id}`, this.users);
-        } else {
-          const response = await this.$api.post('/users/create', this.users);
-        }
-        this.resetusers()
-        await this.getItems();
-      },
+  //     async persist() {
+  //       if (this.users.id) {
+  //         const response = await this.$api.post(`/users/update/${this.users.id}`, this.users);
+  //       } else {
+  //         const response = await this.$api.post('/users/create', this.users);
+  //       }
+  //       this.resetusers()
+  //       await this.getItems();
+  //     },
 
-      editItem(item) {
-        this.users = {
-          ...item
-        };
-        this.ativo = true;
-      },
+  //     editItem(item) {
+  //       this.users = {
+  //         ...item
+  //       };
+  //       this.ativo = true;
+  //     },
       
-      async deleteItem(item) {
-        if(confirm(`Tem certeza que deseja deletar itens do id ${item.id}?`)) {
-          const response = await this.$api.post(`/users/destroy/${item.id}`, { id: item.id });
-            if(response.type == 'error') {
-              alert(response.message);
-            }
-          }
-        await this.getItems();
-      },
+  //     async deleteItem(item) {
+  //       if(confirm(`Tem certeza que deseja deletar itens do id ${item.id}?`)) {
+  //         const response = await this.$api.post(`/users/destroy/${item.id}`, { id: item.id });
+  //           if(response.type == 'error') {
+  //             alert(response.message);
+  //           }
+  //         }
+  //       await this.getItems();
+  //     },
       
-      async getItems() {
-        const response = await this.$api.get('/users/list-all');
-        this.items = response.data;
-        console.log(this.items);
-        this.loading = false;
-      }
-    }
-  }
+  //     async getItems() {
+  //       const response = await this.$api.get('/users/list-all');
+  //       this.items = response.data;
+  //       console.log(this.items);
+  //       this.loading = false;
+  //     }
+  //   }
+  // }
 </script>
 
 <style></style>
